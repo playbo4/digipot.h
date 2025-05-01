@@ -22,7 +22,7 @@ class DigiPot {
   }
 
   void increment(int8_t inc) {
-    bool direction = (inc >= 0); // Direction flag
+    bool direction = (inc >= 0);  // Direction flag
     if (inc < 0) {
       inc = -inc;  // Make inc positive
     }
@@ -53,14 +53,14 @@ class DigiPotComponent : public Component {
 
   void setup() override {
       ESP_LOGCONFIG(TAG, "Setting up DigiPot...");
-      digipot_.reset(); // Reset on startup
+      digipot_.reset();  // Reset on startup
   }
 
   void loop() override {}  // Nothing to do in constant loop
 
   void set_value(int8_t value) { digipot_.write(value); }
 
-private:
+ private:
   DigiPot digipot_;
   uint8_t cs_pin_;
   uint8_t ud_pin_;
@@ -70,4 +70,4 @@ static const char *const TAG = "DigiPot";
 };
 
 }  // namespace digipot
-}  // namespace esphom
+}  // namespace esphome
